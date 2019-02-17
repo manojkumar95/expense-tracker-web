@@ -2,20 +2,27 @@
 @import "../../styles/theme/light.scss";
 
 .app-header {
-	height: $app-header-height;
-	border-bottom: 1px solid $light-grey;
+	background-color: $white;
+	color: $black;
 	position: fixed;
-	background: $white;
-	left: 0px;
-	right: 0;
+	z-index: 99;
+	left: 0;
 	top: 0;
-	z-index: 999999;
-	.theme-logo {
-		height: 30px;
-		margin-top: 20px;
+	max-height: 75px;
+	right: 0;
+	i {
+		color: #ea751b;
+		margin-right: 10px;
 	}
-	.headerSelect{
-		min-width: 200px;
-		text-align: left;
+	.theme-logo {
+		height: 28px;
+		margin-top: 5px;
+	}
+	.active-nav-link, .nav-link {
+		color: $black !important;
+	}
+	.user-title {
+		color: #3a3737;
+		font-size: 17px;
 	}
 }

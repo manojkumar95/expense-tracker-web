@@ -69,3 +69,75 @@
 		border-color: $secondary-color;
 	}
 }
+
+.navbar {
+	background: $white;
+}
+
+.navbar-dark .navbar-brand {
+	color: $black;
+	&:focus, &:hover {
+		color: $black;
+	}
+}
+
+.nav-link {
+	color: $black !important;
+}
+.navbar-dark .navbar-toggler {
+    color: $black;
+	border-color: #1b1e2159;
+	outline: none !important;
+}
+
+.navbar-toggler {
+	padding: 0.25rem 0.25rem;
+}
+
+.navbar-toggler-icon {
+	background: #00000087;
+}
+
+.nav-item {
+  &:hover {
+	.nav-link {
+		background: rgba(0, 0, 0, 0.075);
+	}
+  }
+  &.active {
+	  .nav-link {
+		  color: blue;
+	  }
+  }
+}
+
+.nav-item {
+	cursor: pointer;
+	padding: 0px 30px;
+	.dropdown-item.active, .dropdown-item:active, .dropdown-item:hover {
+	  color: $black;
+	  outline: none;
+	  text-decoration: none;
+	  background-color: rgba(0, 0, 0, 0.02);
+	  &:hover {
+		background: rgba(0, 0, 0, 0.075);
+	  }
+	}
+  
+	.dropdown-item { 
+	  padding: 0.6rem 1.5rem;
+	}
+  
+	.dropdown-menu {
+	  padding: 0;
+	  font-size: 15px;
+	  margin: 0.125rem 25px 0;
+	  &.show {
+		border: 1px solid rgba(0, 0, 0, 0.05);
+	  }
+	}
+}
+
+.nav-dropdown-toggle {
+	cursor: pointer;
+}
