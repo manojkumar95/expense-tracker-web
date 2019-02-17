@@ -1,0 +1,82 @@
+:root {
+	font-family: $primary-font-family !important;
+
+}
+
+body {
+	box-sizing: border-box;
+	font-family: $primary-font-family !important;
+	font-size: 15px !important;
+}
+
+html {
+	/* Adjust font size */
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	/* Font varient */
+	font-variant-ligatures: none;
+	-webkit-font-variant-ligatures: none;
+	/* Smoothing */
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}
+
+.userShortHand {
+	border-radius: 50%;
+	border: 1px solid #ddd;
+	height: 45px;
+	display: inline-block;
+	width: 45px;
+	font-size: 15px;
+	line-height: 42px;
+	text-align: center;
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+input, button {
+	box-shadow: none !important;
+	border-radius: 2px !important;
+}
+
+::-webkit-input-placeholder {
+	color: $grey;
+}
+
+::-moz-placeholder {
+	color: $grey;
+}
+
+:-ms-input-placeholder {
+	color: $grey;
+}
+
+::placeholder {
+	color: $grey;
+}
+
+
+
+
+.container {
+  margin-top: 30px;
+}
+
+.card {
+  min-height: 275px;
+  box-shadow: 3px 3px 10px #cccccc70;
+}
+
+.card-header {
+	background: #fff;
+}

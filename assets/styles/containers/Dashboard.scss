@@ -1,0 +1,18 @@
+@import '../variables.scss';
+@import '../theme/light.scss';
+
+main.app-mainArea {
+	min-height: 100vh;
+    padding-top: 70px;
+    background: #EEF2F5;
+}
+
+.hnt {
+	font-size: 1rem;
+}
+.pointer {
+	cursor: pointer;
+}
+.link {
+	color: #007bff;
+}

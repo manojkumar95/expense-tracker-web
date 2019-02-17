@@ -1,0 +1,21 @@
+@import "../../styles/variables.scss";
+@import "../../styles/theme/light.scss";
+
+.app-header {
+	height: $app-header-height;
+	border-bottom: 1px solid $light-grey;
+	position: fixed;
+	background: $white;
+	left: 0px;
+	right: 0;
+	top: 0;
+	z-index: 999999;
+	.theme-logo {
+		height: 30px;
+		margin-top: 20px;
+	}
+	.headerSelect{
+		min-width: 200px;
+		text-align: left;
+	}
+}
