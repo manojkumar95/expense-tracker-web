@@ -1,0 +1,81 @@
+@import "../../styles/variables.scss";
+@import "../../styles/theme/light.scss";
+
+$table-header-clr: #e67116;;
+$table-content-clr: #464343;
+
+.table-container {
+	background-color: $white;
+	position: relative;
+	padding-top: 60px;
+}
+table {
+	width: 100%;
+}
+th {
+	font-weight: unset;
+	padding-right: 10px;
+}
+td {
+	font-weight: unset;
+	padding-right: 10px;
+}
+.column1 {
+	width: 22%;
+	padding-left: 40px;
+}
+.column2 {
+	width: 39%;
+}
+.column3 {
+	width: 39%;
+}
+.table-container-head {
+	th {
+		padding-top: 18px;
+		padding-bottom: 18px;
+	}
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+.table-container-body {
+    td {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+	overflow: auto;
+}
+.table-container {
+	.table-container-head {
+		box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+		-moz-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+		-webkit-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+		-o-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+		-ms-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+	}
+	th {
+		font-size: 18px;
+		color: $table-header-clr;
+		line-height: 1.4;
+		background-color: transparent;
+	}
+	td {
+		font-size: 15px;
+		color: $table-content-clr;
+		line-height: 1.4;
+	}
+	.table-container-body {
+		tr {
+			border-bottom: 1px solid #f2f2f2;
+		}
+	}
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+	-o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+	-ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+}
