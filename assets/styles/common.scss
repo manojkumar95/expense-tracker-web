@@ -1,0 +1,70 @@
+@import './variables.scss';
+
+.input-field {
+	color: #253858;
+	display: flex;
+}
+
+.error-message {
+	margin-top: 10px;
+	color: $error-color;
+	font-size: 13px;
+}
+
+.field-label {
+  margin-bottom: 5px !important;
+}
+
+input[type=text], input[type=number], textarea{
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: solid 1px #d7dee8;
+	color: $input-text-clr;
+	font-size: 15px;
+	font-weight: 400;
+	height: 34px;
+	width: 100%;
+	outline: none;
+	padding: 0 10px;
+	&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		color: $dark-grey;
+		font-size: 15px;
+	}
+	&::-moz-placeholder { /* Firefox 19+ */
+		color: $dark-grey;
+		font-size: 15px;
+	}
+	&:-ms-input-placeholder { /* IE 10+ */
+		color: $dark-grey;
+		font-size: 15px;
+	}
+	&:-moz-placeholder { /* Firefox 18- */
+		color: $dark-grey;
+		font-size: 15px;
+	}
+ }
+
+ textarea {
+	 height: 60px;;
+ }
+.m-t-10 {
+	margin-top: 10px;
+}
+.m-b-15 {
+   margin-bottom: 15px;
+}
+.m-r-10 {
+	margin-right: 10px;
+}
+.m-b-10 {
+   margin-bottom: 10px;
+}
+.p-t-15 {
+   padding-top: 15px;
+}
+.m-l-15 {
+	margin-left: 15px;
+}
+.m-r-15 {
+   margin-right: 15px;
+}
