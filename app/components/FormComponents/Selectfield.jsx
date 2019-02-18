@@ -16,7 +16,6 @@ const SelectField = ({
   labelKey,
   valueKey,
   disabled,
-  simpleValue,
   error
 }) => (
   <React.Fragment>
@@ -37,7 +36,6 @@ const SelectField = ({
         clearable={false}
         multi={isMulti}
         disabled={disabled}
-        simpleValue={!isMulti || simpleValue}
         labelKey={labelKey}
         valueKey={valueKey}
       />
@@ -61,8 +59,7 @@ SelectField.propTypes = {
   isMulti: PropTypes.bool,
   options: PropTypes.array,
   disabled: PropTypes.bool,
-  simpleValue: PropTypes.bool,
-  value: PropTypes.string,
+  value: PropTypes.any,
   error: PropTypes.string
 };
 
@@ -76,7 +73,6 @@ SelectField.defaultProps = {
   options: [],
   disabled: false,
   value: '',
-  simpleValue: true,
   error: ''
 };
 
