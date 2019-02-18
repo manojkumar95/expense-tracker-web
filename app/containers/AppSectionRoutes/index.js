@@ -15,6 +15,16 @@ const Home = Loadable({
   loading: Loader
 });
 
+/**
+ * Importing AddExpense component on demand
+ */
+const AddExpense = Loadable({
+  loader: () => new Promise(resolve => {
+    import('../AddExpense/index').then(res => resolve(res.default));
+  }),
+  loading: Loader
+});
+
 class AppSectionRoutes extends React.Component {
   constructor(props) {
     super(props);
@@ -41,10 +51,15 @@ class AppSectionRoutes extends React.Component {
           <Switch>
             <Route
               exact
-              path="/"
+              path="/home"
               render={props => (
                 <Home {...props} {...this.state} />
               )}
+            />
+            <Route
+              exact
+              path="/add-expense"
+              render={props => (<AddExpense {...props} />)}
             />
             <Route component={Notfound} />
           </Switch>

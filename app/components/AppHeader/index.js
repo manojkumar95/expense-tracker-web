@@ -39,7 +39,7 @@ const AppHeader = props => {
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <NavLink
                   className="dropdown-item"
-                  to="/"
+                  to="/add-expense"
                 ><i className="fa fa-plus" aria-hidden="true" />
                 Create Expense
                 </NavLink>
