@@ -17,7 +17,7 @@
   }
   .category-title {
     font-size: 24px;
-    color: #253858;
+    color: #ea751b;
     margin: 10px 0 0;
   }
   .expense-button {
@@ -26,22 +26,6 @@
     text-align: center;
     color: #f8f9fa;
     width: 90px;
-  }
-  .cancel-btn {
-    @extend .expense-button;
-    background-color: $cancel-btn-bg-clr !important;
-    border: solid 1px $success-btn-bg-clr;
-    color: $cancel-btn-clr;
-  }
-  .active-btn {
-    @extend .expense-button;
-    background-color: #ea751b;
-  }
-  .form-container {
-    border-radius: 2px;
-    background-color: #ffffff;
-    box-shadow: 0 6px 8px 0 rgba(189, 208, 223, 0.5);
-    padding: 30px 30px 40px;
   }
 }
 
@@ -60,19 +44,5 @@
 @media(max-width:640px) {
   .category-container {
     padding: 0px;
-  }
-  .category-container {
-    .form-container {
-      padding: 10px 15px 30px;
-      ul {
-        padding: 5px 0 0;
-        overflow-x: scroll;
-        display: block;
-        white-space: nowrap;
-        li {
-          display: inline-block;
-        }
-      }
-    }
   }
 }
