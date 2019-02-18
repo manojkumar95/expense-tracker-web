@@ -53,7 +53,7 @@ const AppHeader = props => {
             <li className="nav-item">
               <NavLink
                 className="nav-link"
-                to="/"
+                to="/view-category"
               ><i className="fa fa-list-alt" aria-hidden="true" />
               Category
               </NavLink>

@@ -62,7 +62,7 @@ const AddExpenseForm = ({
             placeholder="Select category"
             simpleValue
             labelKey="name"
-            valueKey="_id"
+            valueKey="id"
             isRequired
             isMulti
             value={categoryValue}

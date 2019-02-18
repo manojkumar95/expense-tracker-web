@@ -1,0 +1,78 @@
+@import "../../styles/variables.scss";
+@import "../../styles/theme/light.scss";
+
+.category-container {
+  padding: 15px 150px;
+  .m-t-b-25 {
+    margin: 25px 0px;
+  }
+  .m-t-10 {
+    margin-top: 10px;
+  }
+  .p-l-15 {
+    padding-left: 15px;
+  }
+  .p-l-r-15 {
+    padding: 0 15px;
+  }
+  .category-title {
+    font-size: 24px;
+    color: #253858;
+    margin: 10px 0 0;
+  }
+  .expense-button {
+    font-size: 15px;
+    padding: 10px 20px;
+    text-align: center;
+    color: #f8f9fa;
+    width: 90px;
+  }
+  .cancel-btn {
+    @extend .expense-button;
+    background-color: $cancel-btn-bg-clr !important;
+    border: solid 1px $success-btn-bg-clr;
+    color: $cancel-btn-clr;
+  }
+  .active-btn {
+    @extend .expense-button;
+    background-color: #ea751b;
+  }
+  .form-container {
+    border-radius: 2px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 8px 0 rgba(189, 208, 223, 0.5);
+    padding: 30px 30px 40px;
+  }
+}
+
+@media(max-width:1199px) {
+  .category-container {
+    padding: 15px 50px;
+  }
+}
+
+@media(max-width:767px) {
+  .category-container {
+    padding: 15px 0px;
+  }
+}
+
+@media(max-width:640px) {
+  .category-container {
+    padding: 0px;
+  }
+  .category-container {
+    .form-container {
+      padding: 10px 15px 30px;
+      ul {
+        padding: 5px 0 0;
+        overflow-x: scroll;
+        display: block;
+        white-space: nowrap;
+        li {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

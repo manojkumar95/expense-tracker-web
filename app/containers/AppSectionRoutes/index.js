@@ -25,6 +25,16 @@ const AddExpense = Loadable({
   loading: Loader
 });
 
+/**
+ * Importing ViewCategory component on demand
+ */
+const ViewCategory = Loadable({
+  loader: () => new Promise(resolve => {
+    import('../ViewCategory/index').then(res => resolve(res.default));
+  }),
+  loading: Loader
+});
+
 class AppSectionRoutes extends React.Component {
   constructor(props) {
     super(props);
@@ -60,6 +70,11 @@ class AppSectionRoutes extends React.Component {
               exact
               path="/add-expense"
               render={props => (<AddExpense {...props} />)}
+            />
+            <Route
+              exact
+              path="/view-category"
+              render={props => (<ViewCategory {...props} />)}
             />
             <Route component={Notfound} />
           </Switch>
