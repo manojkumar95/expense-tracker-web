@@ -1,0 +1,48 @@
+@import "../../styles/variables.scss";
+@import "../../styles/theme/light.scss";
+
+.expense-container {
+  padding: 15px 150px;
+  .m-t-b-25 {
+    margin: 25px 0px;
+  }
+  .m-t-10 {
+    margin-top: 10px;
+  }
+  .p-l-15 {
+    padding-left: 15px;
+  }
+  .p-l-r-15 {
+    padding: 0 15px;
+  }
+  .expense-title {
+    font-size: 24px;
+    color: #ea751b;
+    margin: 10px 0 0;
+  }
+  .expense-button {
+    font-size: 15px;
+    padding: 10px 20px;
+    text-align: center;
+    color: #f8f9fa;
+    width: 90px;
+  }
+}
+
+@media(max-width:1199px) {
+  .expense-container {
+    padding: 15px 50px;
+  }
+}
+
+@media(max-width:767px) {
+  .expense-container {
+    padding: 15px 0px;
+  }
+}
+
+@media(max-width:640px) {
+  .expense-container {
+    padding: 0px;
+  }
+}

@@ -24,7 +24,7 @@ const expenseReducer = (state = initialState, action) => {
     case expenseAction.GET_EXPENSES_SUCCESS:
       return state
         .set('loading', false)
-        .set('expensesList', action.response.data || []);
+        .set('expensesList', action.response || []);
     case expenseAction.GET_EXPENSES_ERROR:
       return state
         .set('loading', false)

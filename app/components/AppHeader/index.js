@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import '../../../assets/styles/components/AppHeader.scss';
 import happyFox from '../../../assets/images/happyfox.svg';
 
@@ -9,9 +9,9 @@ const AppHeader = props => {
   return (
     <header className="app-header">
       <nav className="navbar fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar">
-        <a className="navbar-brand" href="/hello">
+        <Link className="navbar-brand" to="/view-expense">
           <img src={happyFox} alt="HappyFox" className="theme-logo" />
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -45,7 +45,7 @@ const AppHeader = props => {
                 </NavLink>
                 <NavLink
                   className="dropdown-item"
-                  to="/"
+                  to="/view-expense"
                 ><i className="fa fa-calculator" aria-hidden="true" />Track Expense
                 </NavLink>
               </div>
