@@ -146,3 +146,26 @@
 .nav-dropdown-toggle {
 	cursor: pointer;
 }
+
+.rw-datetime-picker {
+	.rw-widget-picker {
+    border-radius: 2px;
+    border: solid 1px #d7dee8;
+		height: 35px;
+		text-transform: capitalize;
+		&:hover {
+			box-shadow: none;
+    }
+    input {
+      border-top-right-radius: 0px !important;
+      border-bottom-right-radius: 0px !important;
+      border: none;
+    }
+    >.rw-select {
+      border-top-right-radius: 2px !important;
+      border-bottom-right-radius: 2px !important;
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+    }
+	}
+}
