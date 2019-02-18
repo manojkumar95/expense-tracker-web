@@ -38,12 +38,12 @@
   }
   .active-btn {
     @extend .expense-button;
-    background-color: #0070e0;
+    background-color: #ea751b;
   }
   .disabled-btn {
     @extend .expense-button;
     opacity: 0.5;
-    background-color: #0070e0;
+    background-color: #ea751b;
   }
   .form-container {
     border-radius: 2px;
