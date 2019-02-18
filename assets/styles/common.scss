@@ -17,7 +17,7 @@
 
 input[type=text], input[type=number], textarea{
   border-radius: 4px;
-  background-color: #ffffff;
+  background-color: $cancel-btn-bg-clr;
   border: solid 1px #d7dee8;
 	color: $input-text-clr;
 	font-size: 15px;
@@ -73,4 +73,24 @@ input[type=text], input[type=number], textarea{
 	.Select-value {
 		color: #ea751b !important;
 	}
+}
+
+.active-btn {
+	font-size: 15px;
+    padding: 10px 20px;
+    text-align: center;
+    color: #f8f9fa;
+    width: 90px;
+    background-color: #ea751b;
+}
+
+.cancel-btn {
+	font-size: 15px;
+    padding: 10px 20px;
+    text-align: center;
+    color: #f8f9fa;
+    width: 90px;
+    background-color: $cancel-btn-bg-clr !important;
+    border: solid 1px $success-btn-bg-clr;
+    color: $cancel-btn-clr;
 }
