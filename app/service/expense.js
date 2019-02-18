@@ -11,7 +11,14 @@ const getExpenses = () => axios({
   url: '/expenses'
 });
 
+const getExpensesByFilter = filterData => axios({
+  method: 'post',
+  url: '/expenses/filter',
+  data: filterData
+});
+
 module.exports = {
   create,
-  getExpenses
+  getExpenses,
+  getExpensesByFilter
 };

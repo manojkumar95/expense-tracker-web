@@ -7,7 +7,8 @@ import {
 } from '../actions/expense';
 import {
   create,
-  getExpenses
+  getExpenses,
+  getExpensesByFilter
 } from '../service/expense';
 
 /**
@@ -38,7 +39,22 @@ function* getExpensesList() {
   }
 }
 
+/**
+ * Generator method to get all expenses
+ * @param {object} action
+ */
+function* getExpensesByFiltersList(action) {
+  try {
+    const { filterData } = action;
+    const response = yield call(getExpensesByFilter, filterData);
+    yield put(getExpensesSuccess(response));
+  } catch (e) {
+    yield put(getExpensesError(e));
+  }
+}
+
 module.exports = {
   getExpensesList,
-  createExpense
+  createExpense,
+  getExpensesByFiltersList
 };

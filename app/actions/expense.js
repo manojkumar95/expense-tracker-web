@@ -18,6 +18,24 @@ const getExpensesError = error => ({
 });
 
 /**
+ * Actions to fetch expense list by filters
+ */
+const getExpensesByFilters = filterData => ({
+  type: expenseAction.GET_EXPENSES_BY_FILTER,
+  filterData
+});
+
+const getExpensesByFiltersSuccess = response => ({
+  type: expenseAction.GET_EXPENSES_BY_FILTER_SUCCESS,
+  response
+});
+
+const getExpensesByFiltersError = error => ({
+  type: expenseAction.GET_EXPENSES_BY_FILTER_ERROR,
+  error
+});
+
+/**
  * Actions to create expense
  */
 const createExpense = expenseData => ({
@@ -41,5 +59,8 @@ module.exports = {
   getExpensesError,
   createExpense,
   createExpenseSuccess,
-  createExpenseError
+  createExpenseError,
+  getExpensesByFilters,
+  getExpensesByFiltersSuccess,
+  getExpensesByFiltersError
 };

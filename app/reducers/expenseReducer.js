@@ -3,7 +3,8 @@ import expenseAction from '../constants/expenseAction';
 
 const initialState = fromJS({
   expensesList: [],
-  loading: false
+  loading: false,
+  filteredExpensesList: []
 });
 
 const expenseReducer = (state = initialState, action) => {
@@ -26,6 +27,20 @@ const expenseReducer = (state = initialState, action) => {
         .set('loading', false)
         .set('expensesList', action.response || []);
     case expenseAction.GET_EXPENSES_ERROR:
+      return state
+        .set('loading', false)
+        .set('error', action.error);
+
+    // get expense by filters list
+    case expenseAction.GET_EXPENSES_BY_FILTER:
+      return state
+        .set('loading', true)
+        .set('filteredExpensesList', []);
+    case expenseAction.GET_EXPENSES_BY_FILTER_SUCCESS:
+      return state
+        .set('loading', false)
+        .set('filteredExpensesList', action.response || []);
+    case expenseAction.GET_EXPENSES_BY_FILTER_ERROR:
       return state
         .set('loading', false)
         .set('error', action.error);
