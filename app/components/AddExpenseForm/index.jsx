@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import InputField from '../FormComponents/InputField';
@@ -12,81 +12,83 @@ const AddExpenseForm = ({
   titleValue, amountValue, notesValue, categoryValue,
   titleError, amountError, categoryError
 }) => (
-  <form className="expense-form">
-    <div className="row form-field">
-      <div className="col-12 col-md-6 mt-2 mb-2">
-        <InputField
-          name="title"
-          label="Name"
-          type="text"
-          isLableRequired
-          isRequired
-          value={titleValue}
-          handleChange={onTitleChange}
-          error={titleError}
-        />
+  <Fragment>
+    <form className="expense-form">
+      <div className="row form-field">
+        <div className="col-12 col-md-6 mt-2 mb-2">
+          <InputField
+            name="title"
+            label="Name"
+            type="text"
+            isLableRequired
+            isRequired
+            value={titleValue}
+            handleChange={onTitleChange}
+            error={titleError}
+          />
+        </div>
+        <div className="col-12 col-md-6 mt-2 mb-2">
+          <InputField
+            name="amount"
+            label="Amount"
+            type="text"
+            isLableRequired
+            isRequired
+            value={amountValue}
+            handleChange={onAmountChange}
+            error={amountError}
+          />
+        </div>
       </div>
-      <div className="col-12 col-md-6 mt-2 mb-2">
-        <InputField
-          name="amount"
-          label="Amount"
-          type="text"
-          isLableRequired
-          isRequired
-          value={amountValue}
-          handleChange={onAmountChange}
-          error={amountError}
-        />
+      <div className="row form-field">
+        <div className="col-12 mt-4 mb-4">
+          <TextArea
+            name="notes"
+            type="textArea"
+            label="Notes"
+            isLableRequired
+            value={notesValue}
+            handleChange={onNotesChange}
+          />
+        </div>
       </div>
-    </div>
-    <div className="row form-field">
-      <div className="col-12 mt-4 mb-4">
-        <TextArea
-          name="notes"
-          type="textArea"
-          label="Notes"
-          isLableRequired
-          value={notesValue}
-          handleChange={onNotesChange}
-        />
+      <div className="row form-field">
+        <div className="col-12 col-md-6 mt-2 mb-5">
+          <SelectField
+            name="expenseCategory"
+            label="Expense Category"
+            isLableRequired
+            options={category}
+            placeholder="Select category"
+            simpleValue
+            labelKey="name"
+            valueKey="_id"
+            isRequired
+            isMulti
+            value={categoryValue}
+            handleChange={onCategoryChange}
+            error={categoryError}
+          />
+        </div>
       </div>
-    </div>
-    <div className="row form-field">
-      <div className="col-12 col-md-6 mt-2 mb-5">
-        <SelectField
-          name="expenseCategory"
-          label="Expense Category"
-          isLableRequired
-          options={category}
-          placeholder="Select category"
-          simpleValue
-          labelKey="name"
-          valueKey="id"
-          isRequired
-          value={categoryValue}
-          handleChange={onCategoryChange}
-          error={categoryError}
-        />
-      </div>
-    </div>
+    </form>
     <div className="row">
       <div className="col-8 col-md-12 offset-4 offset-md-4 p-0">
         <button
-          type="submit"
           className="btn btn-default active-btn"
           onClick={handleFormSubmit}
         >
-          Save
+            Save
         </button>
         <button
           className="btn btn-default active-btn cancel-btn m-l-15 m-r-15"
           onClick={cancelForm}
         >
-          Cancel
+            Cancel
         </button>
       </div>
     </div>
-  </form>
+  </Fragment>
 );
 
 AddExpenseForm.propTypes = {
@@ -103,7 +105,7 @@ AddExpenseForm.propTypes = {
   titleValue: PropTypes.string.isRequired,
   amountValue: PropTypes.string.isRequired,
   notesValue: PropTypes.string.isRequired,
-  categoryValue: PropTypes.string.isRequired
+  categoryValue: PropTypes.array.isRequired
 };
 
 export default AddExpenseForm;

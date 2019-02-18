@@ -1,5 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
+import CategoryAction from '../../actions/category';
+import ExpenseAction from '../../actions/expense';
 
 import AddExpenseForm from '../../components/AddExpenseForm';
 
@@ -10,11 +14,15 @@ class AddExpense extends React.Component {
       titleValue: '',
       amountValue: '',
       notesValue: '',
-      categoryValue: '',
+      categoryValue: [],
       titleError: '',
       amountError: '',
       categoryError: ''
     };
+  }
+
+  componentDidMount() {
+    this.props.getCategories();
   }
 
   onTitleChange = evt => {
@@ -47,23 +55,39 @@ class AddExpense extends React.Component {
     });
   }
 
-  handleFormSubmit = formValues => {
-    console.log('formValues', formValues);
+  handleFormSubmit = () => {
+    const {
+      notesValue, titleValue, amountValue, categoryValue
+    } = this.state;
+    const { user } = this.props;
+    this.props.createExpense({
+      notes: notesValue,
+      title: titleValue,
+      amount: amountValue,
+      categories: categoryValue,
+      user
+    });
+    this.resetFormValues();
   }
 
-  cancelForm = () => {
+  resetFormValues= () => {
     this.setState({
       titleValue: '',
       amountValue: '',
       notesValue: '',
-      categoryValue: '',
+      categoryValue: [],
       titleError: '',
       amountError: '',
       categoryError: ''
     });
   }
 
+  cancelForm = () => {
+    this.resetFormValues();
+  }
+
   render() {
+    const { categories } = this.props;
     const {
       titleValue, amountValue, notesValue, categoryValue,
       titleError, amountError, categoryError
@@ -86,7 +110,7 @@ class AddExpense extends React.Component {
             <div className="col-lg-12">
               <div className="form-container">
                 <AddExpenseForm
-                  category={[]}
+                  category={categories}
                   onTitleChange={onTitleChange}
                   onAmountChange={onAmountChange}
                   onNotesChange={onNotesChange}
@@ -110,4 +134,26 @@ class AddExpense extends React.Component {
   }
 }
 
-export default connect(null, null)(AddExpense);
+AddExpense.propTypes = {
+  getCategories: PropTypes.func.isRequired,
+  createExpense: PropTypes.func.isRequired,
+  user: PropTypes.string.isRequired,
+  categories: PropTypes.array
+};
+
+AddExpense.defaultProps = {
+  categories: []
+};
+
+const mapStateToProps = state => ({
+  categories: Array.from(state.category.get('categoriesList') || []),
+  loading: state.category.get('loading'),
+  user: state.user.get('userId')
+});
+
+const mapDispatchToProps = dispatch => ({
+  createExpense: data => dispatch(ExpenseAction.createExpense(data)),
+  getCategories: () => dispatch(CategoryAction.getCategory())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddExpense);
