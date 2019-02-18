@@ -29,7 +29,7 @@ const Table = ({ expenses }) => (
               <td className="column3">{expense.amount}</td>
               <td className="column4">{expense.notes}</td>
               <td className="column5">{expense.categories.map(category => (
-                <div>{category.name}</div>
+                <div key={category.name}>{category.name}</div>
               ))}
               </td>
             </tr>

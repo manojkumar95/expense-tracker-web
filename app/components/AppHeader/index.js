@@ -46,7 +46,7 @@ const AppHeader = props => {
                 <NavLink
                   className="dropdown-item"
                   to="/view-expense"
-                ><i className="fa fa-calculator" aria-hidden="true" />Track Expense
+                ><i className="fa fa-calculator" aria-hidden="true" />Track Expenses
                 </NavLink>
               </div>
             </li>

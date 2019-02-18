@@ -13,10 +13,15 @@ const filterOptions = [
 
 const FilterExpense = ({
   onFilterDateChange, dateValue,
-  onFilterChange, selectedFilter
+  onFilterChange, selectedFilter, applyFilters
 }) => (
   <div>
-    <div>
+    <div className="col-12 p-0">
+      <span className="expense-title">
+        Filters
+      </span>
+    </div>
+    <div className="m-t-35">
       <SelectField
         name="applyFilters"
         label="Filter By"
@@ -33,7 +38,7 @@ const FilterExpense = ({
       />
     </div>
     {Object.keys(selectedFilter).length > 0 && selectedFilter.id !== 'noFilter' &&
-    <div className="m-b-25">
+    <div className="m-t-35">
       <DatePicker
         value={dateValue}
         name="filterDate"
@@ -42,6 +47,15 @@ const FilterExpense = ({
       />
     </div>
     }
+    <div className="col-lg-8 col-6 offset-lg-1 col-sm-8 offset-sm-4 offset-md-4 offset-3">
+      <button
+        className="btn btn-default filter-btn m-t-35"
+        onClick={applyFilters}
+        disabled={!dateValue}
+      >
+        Apply Filters
+      </button>
+    </div>
   </div>
 );
 
@@ -49,7 +63,8 @@ FilterExpense.propTypes = {
   onFilterDateChange: PropTypes.func.isRequired,
   onFilterChange: PropTypes.func.isRequired,
   dateValue: PropTypes.string.isRequired,
-  selectedFilter: PropTypes.object.isRequired
+  selectedFilter: PropTypes.object.isRequired,
+  applyFilters: PropTypes.func.isRequired
 };
 
 export default FilterExpense;

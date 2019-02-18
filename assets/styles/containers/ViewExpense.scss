@@ -20,12 +20,18 @@
     color: #ea751b;
     margin: 10px 0 0;
   }
-  .expense-button {
-    font-size: 15px;
+  .filter-btn {
     padding: 10px 20px;
     text-align: center;
     color: #f8f9fa;
-    width: 90px;
+    background-color: #ea751b;
+  }
+  .filter-container {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    position: relative;
+    padding: 40px 15px;
   }
 }
 
