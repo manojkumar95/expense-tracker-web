@@ -1,0 +1,21 @@
+@import "../../styles/variables.scss";
+@import "../../styles/theme/light.scss";
+
+.table-container {
+    .column1 {
+        width: 20%;
+        padding-left: 40px;
+    }
+    .column2 {
+        width: 20%;
+    }
+    .column3 {
+        width: 20%;
+    }
+    .column4 {
+        width: 20%;
+    }
+    .column5 {
+        width: 20%;
+    }
+}
