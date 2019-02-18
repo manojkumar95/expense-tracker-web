@@ -81,7 +81,7 @@ const AddExpenseForm = ({
             Save
         </button>
         <button
-          className="btn btn-default active-btn cancel-btn m-l-15 m-r-15"
+          className="btn btn-default cancel-btn m-l-15 m-r-15"
           onClick={cancelForm}
         >
             Cancel
