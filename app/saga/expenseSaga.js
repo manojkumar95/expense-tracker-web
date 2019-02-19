@@ -10,6 +10,7 @@ import {
   getExpenses,
   getExpensesByFilter
 } from '../service/expense';
+import Notification from '../components/Notification';
 
 /**
  * Generator method to create expense
@@ -21,7 +22,9 @@ function* createExpense(action) {
     const { expenseData } = action;
     const response = yield call(create, expenseData);
     yield put(createExpenseSuccess(response));
+    Notification('success', 'Expense created successfully');
   } catch (e) {
+    Notification('error', e.message);
     yield put(createExpenseError(e));
   }
 }

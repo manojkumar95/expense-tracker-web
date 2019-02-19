@@ -1,6 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 import UserActions from '../actions/user';
 import UserService from '../service/user';
+import Notification from '../components/Notification';
 
 /**
  * Generator method to fetch user
@@ -17,11 +18,14 @@ function* getUser() {
 /**
  * Generator method to update user
  */
-function* updateUser() {
+function* updateUser(action) {
   try {
-    const response = yield call(UserService.updateUser);
+    const { userData } = action;
+    const response = yield call(UserService.updateUser, userData);
     yield put(UserActions.updateUserSuccess(response));
+    Notification('success', 'User updated successfully');
   } catch (e) {
+    Notification('error', e.message);
     yield put(UserActions.updateUserError(e));
   }
 }

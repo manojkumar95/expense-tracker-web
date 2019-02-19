@@ -10,6 +10,7 @@ import {
   create,
   getCategories
 } from '../service/category';
+import Notification from '../components/Notification';
 
 /**
  * Generator method to create category
@@ -21,7 +22,9 @@ function* createCategory(action) {
     const { categoryData } = action;
     const response = yield call(create, categoryData);
     yield put(createCategorySuccess(response));
+    Notification('success', 'Category created successfully');
   } catch (e) {
+    Notification('error', e.message);
     yield put(createCategoryError(e));
   }
 }
