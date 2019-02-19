@@ -19,9 +19,12 @@ import Notification from '../components/Notification';
  */
 function* createExpense(action) {
   try {
-    const { expenseData } = action;
+    const { expenseData, cb } = action;
     const response = yield call(create, expenseData);
     yield put(createExpenseSuccess(response));
+    if (cb) {
+      cb();
+    }
     Notification('success', 'Expense created successfully');
   } catch (e) {
     Notification('error', e.message);
@@ -33,9 +36,10 @@ function* createExpense(action) {
  * Generator method to get all expenses
  * @param {object} action
  */
-function* getExpensesList() {
+function* getExpensesList(action) {
   try {
-    const response = yield call(getExpenses);
+    const { userId } = action;
+    const response = yield call(getExpenses, userId);
     yield put(getExpensesSuccess(response));
   } catch (e) {
     yield put(getExpensesError(e));

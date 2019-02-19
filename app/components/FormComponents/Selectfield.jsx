@@ -16,7 +16,8 @@ const SelectField = ({
   labelKey,
   valueKey,
   disabled,
-  error
+  error,
+  simpleValue
 }) => (
   <React.Fragment>
     <div className="m-t-20">
@@ -38,6 +39,7 @@ const SelectField = ({
         disabled={disabled}
         labelKey={labelKey}
         valueKey={valueKey}
+        simpleValue={simpleValue}
       />
       {
         error && <div className="error-message">{label} {error}</div>
@@ -60,7 +62,8 @@ SelectField.propTypes = {
   options: PropTypes.array,
   disabled: PropTypes.bool,
   value: PropTypes.any,
-  error: PropTypes.string
+  error: PropTypes.string,
+  simpleValue: PropTypes.bool
 };
 
 SelectField.defaultProps = {
@@ -73,7 +76,8 @@ SelectField.defaultProps = {
   options: [],
   disabled: false,
   value: '',
-  error: ''
+  error: '',
+  simpleValue: false
 };
 
 export default SelectField;

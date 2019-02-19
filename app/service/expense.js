@@ -6,9 +6,10 @@ const create = expenseData => axios({
   data: expenseData
 });
 
-const getExpenses = () => axios({
-  method: 'get',
-  url: '/expenses'
+const getExpenses = user => axios({
+  method: 'post',
+  url: '/expenses',
+  data: { user }
 });
 
 const getExpensesByFilter = filterData => axios({

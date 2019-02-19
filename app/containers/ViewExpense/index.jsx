@@ -20,7 +20,14 @@ class ViewExpense extends React.Component {
     };
   }
   componentDidMount() {
-    this.props.getExpenses();
+    const { user } = this.props;
+    if (user) {
+      this.props.getExpenses(user);
+    }
+    this.props.getExpensesByFilters({
+      fromDate: '',
+      period: ''
+    });
   }
 
   onFilterDateChange = value => {
@@ -109,6 +116,7 @@ class ViewExpense extends React.Component {
 ViewExpense.propTypes = {
   getExpenses: PropTypes.func.isRequired,
   getExpensesByFilters: PropTypes.func.isRequired,
+  user: PropTypes.string.isRequired,
   expenses: PropTypes.array,
   filteredExpensesList: PropTypes.array
 };
@@ -126,7 +134,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getExpenses: () => dispatch(ExpenseAction.getExpenses()),
+  getExpenses: userId => dispatch(ExpenseAction.getExpenses(userId)),
   getExpensesByFilters: filters => dispatch(ExpenseAction.getExpensesByFilters(filters))
 });
 

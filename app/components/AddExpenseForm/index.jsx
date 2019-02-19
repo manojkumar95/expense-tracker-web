@@ -105,7 +105,7 @@ AddExpenseForm.propTypes = {
   titleValue: PropTypes.string.isRequired,
   amountValue: PropTypes.string.isRequired,
   notesValue: PropTypes.string.isRequired,
-  categoryValue: PropTypes.array.isRequired
+  categoryValue: PropTypes.string.isRequired
 };
 
 export default AddExpenseForm;

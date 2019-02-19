@@ -3,8 +3,9 @@ import expenseAction from '../constants/expenseAction';
 /**
  * Actions to fetch expense list
  */
-const getExpenses = () => ({
-  type: expenseAction.GET_EXPENSES
+const getExpenses = userId => ({
+  type: expenseAction.GET_EXPENSES,
+  userId
 });
 
 const getExpensesSuccess = response => ({
@@ -38,9 +39,10 @@ const getExpensesByFiltersError = error => ({
 /**
  * Actions to create expense
  */
-const createExpense = expenseData => ({
+const createExpense = (expenseData, cb) => ({
   type: expenseAction.ADD_EXPENSE,
-  expenseData
+  expenseData,
+  cb
 });
 
 const createExpenseSuccess = response => ({

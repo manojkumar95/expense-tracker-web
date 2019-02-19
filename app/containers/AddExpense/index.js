@@ -14,7 +14,7 @@ class AddExpense extends React.Component {
       titleValue: '',
       amountValue: '',
       notesValue: '',
-      categoryValue: [],
+      categoryValue: '',
       titleError: '',
       amountError: '',
       categoryError: ''
@@ -64,10 +64,11 @@ class AddExpense extends React.Component {
       notes: notesValue,
       title: titleValue,
       amount: amountValue,
-      categories: categoryValue,
+      categories: categoryValue.split(','),
       user
+    }, () => {
+      this.resetFormValues();
     });
-    this.resetFormValues();
   }
 
   resetFormValues= () => {
@@ -75,7 +76,7 @@ class AddExpense extends React.Component {
       titleValue: '',
       amountValue: '',
       notesValue: '',
-      categoryValue: [],
+      categoryValue: '',
       titleError: '',
       amountError: '',
       categoryError: ''
@@ -154,7 +155,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createExpense: data => dispatch(ExpenseAction.createExpense(data)),
+  createExpense: (data, cb) => dispatch(ExpenseAction.createExpense(data, cb)),
   getCategories: () => dispatch(CategoryAction.getCategory())
 });
 
