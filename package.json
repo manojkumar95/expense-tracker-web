@@ -27,6 +27,7 @@
     "react-form-validator-core": "^0.4.4",
     "react-hot-loader": "^4.0.0",
     "react-loadable": "^5.4.0",
+    "react-notifications": "^1.4.3",
     "react-perfect-scrollbar": "^1.1.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
