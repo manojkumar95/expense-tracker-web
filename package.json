@@ -34,7 +34,7 @@
     "react-router-dom": "^4.2.2",
     "react-select": "1.2.1",
     "react-spinners": "^0.3.2",
-    "react-widgets": "^4.4.4",
+    "react-widgets": "^4.4.6",
     "react-widgets-moment": "^4.0.19",
     "recharts": "^1.5.0",
     "redux": "^4.0.0",

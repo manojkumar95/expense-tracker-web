@@ -25,7 +25,7 @@ const expenseReducer = (state = initialState, action) => {
     case expenseAction.GET_EXPENSES_SUCCESS:
       return state
         .set('loading', false)
-        .set('expensesList', action.response ? action.response.expenses : []);
+        .set('expensesList', action.response.expenses);
     case expenseAction.GET_EXPENSES_ERROR:
       return state
         .set('loading', false)
@@ -39,7 +39,7 @@ const expenseReducer = (state = initialState, action) => {
     case expenseAction.GET_EXPENSES_BY_FILTER_SUCCESS:
       return state
         .set('loading', false)
-        .set('filteredExpensesList', action.response ? action.response.expenses : []);
+        .set('filteredExpensesList', action.response);
     case expenseAction.GET_EXPENSES_BY_FILTER_ERROR:
       return state
         .set('loading', false)

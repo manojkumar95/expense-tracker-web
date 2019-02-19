@@ -3,7 +3,9 @@ import {
   createExpenseSuccess,
   createExpenseError,
   getExpensesSuccess,
-  getExpensesError
+  getExpensesError,
+  getExpensesByFiltersSuccess,
+  getExpensesByFiltersError
 } from '../actions/expense';
 import {
   create,
@@ -54,9 +56,9 @@ function* getExpensesByFiltersList(action) {
   try {
     const { filterData } = action;
     const response = yield call(getExpensesByFilter, filterData);
-    yield put(getExpensesSuccess(response));
+    yield put(getExpensesByFiltersSuccess(response));
   } catch (e) {
-    yield put(getExpensesError(e));
+    yield put(getExpensesByFiltersError(e));
   }
 }
 
