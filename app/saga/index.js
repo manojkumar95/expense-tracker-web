@@ -3,13 +3,14 @@ import userActions from '../constants/userAction';
 import categoryActions from '../constants/categoryAction';
 import expenseActions from '../constants/expenseAction';
 
-import { getUser } from './userSaga';
+import { getUser, updateUser } from './userSaga';
 import { createCategory, getCategoryList } from './categorySaga';
 import { createExpense, getExpensesList, getExpensesByFiltersList } from './expenseSaga';
 
 export default function* saga() {
   // Methods for userSaga
   yield takeLatest(userActions.GET_USER, getUser);
+  yield takeLatest(userActions.UPDATE_USER, updateUser);
 
   // Methods for categorySaga
   yield takeLatest(categoryActions.GET_CATEGORIES, getCategoryList);

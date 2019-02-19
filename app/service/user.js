@@ -1,10 +1,17 @@
 import axios from 'axios/index';
 
-export default class UserService {
-  static getUser() {
-    return axios({
-      method: 'get',
-      url: '/user'
-    });
-  }
-}
+const getUser = () => axios({
+  method: 'get',
+  url: '/user'
+});
+
+const updateUser = userData => axios({
+  method: 'post',
+  url: '/user/update',
+  data: userData
+});
+
+module.exports = {
+  getUser,
+  updateUser
+};

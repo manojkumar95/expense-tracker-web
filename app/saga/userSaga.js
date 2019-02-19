@@ -14,6 +14,19 @@ function* getUser() {
   }
 }
 
+/**
+ * Generator method to update user
+ */
+function* updateUser() {
+  try {
+    const response = yield call(UserService.updateUser);
+    yield put(UserActions.updateUserSuccess(response));
+  } catch (e) {
+    yield put(UserActions.updateUserError(e));
+  }
+}
+
 module.exports = {
-  getUser
+  getUser,
+  updateUser
 };

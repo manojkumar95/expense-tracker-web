@@ -23,6 +23,18 @@ const userReducer = (state = initialState, action) => {
       return state
         .set('userError', action.error)
         .set('loading', false);
+    case userActions.UPDATE_USER:
+      return state.set('loading', true);
+    case userActions.UPDATE_USER_SUCCESS:
+      return state
+        .set('userId', action.user.userId)
+        .set('firstName', action.user.firstName)
+        .set('lastName', action.user.lastName)
+        .set('loading', false);
+    case userActions.UPDATE_USER_ERROR:
+      return state
+        .set('userError', action.error)
+        .set('loading', false);
     default:
       return state;
   }
