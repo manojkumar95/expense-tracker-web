@@ -61,7 +61,7 @@ const AppHeader = props => {
             <li className="nav-item">
               <NavLink
                 className="nav-link"
-                to="/"
+                to="/edit-profile"
               ><i className="fa fa-user" aria-hidden="true" />
               Profile
               </NavLink>
@@ -69,7 +69,7 @@ const AppHeader = props => {
           </ul>
           <ul className="navbar-nav nav-flex-icons">
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-link" href="/edit-profile">
                 <span className="user-title">Hi, {`${firstName} ${lastName}`}</span>
               </a>
             </li>

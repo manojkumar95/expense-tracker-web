@@ -12,7 +12,8 @@ const InputField = ({
   isRequired,
   type,
   error,
-  value
+  value,
+  readOnly
 }) => (
   <React.Fragment>
     <div>
@@ -30,6 +31,7 @@ const InputField = ({
         autoComplete={autocomplete}
         type={type}
         value={value}
+        readOnly={readOnly}
       />
       {
         error && <div className="error-message">{label} {error}</div>
@@ -49,7 +51,8 @@ InputField.propTypes = {
   isRequired: PropTypes.bool,
   type: PropTypes.string,
   error: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.string,
+  readOnly: PropTypes.bool
 };
 
 InputField.defaultProps = {
@@ -61,7 +64,8 @@ InputField.defaultProps = {
   isRequired: false,
   type: 'text',
   error: '',
-  value: ''
+  value: '',
+  readOnly: false
 };
 
 export default InputField;

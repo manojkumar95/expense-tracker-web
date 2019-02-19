@@ -1,19 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import Loader from '../../components/Loader.jsx';
 import Notfound from '../NotFound';
-
-/**
- * Importing Home component on demand
- */
-const Home = Loadable({
-  loader: () => new Promise(resolve => {
-    import('../Home').then(res => resolve(res.default));
-  }),
-  loading: Loader
-});
 
 /**
  * Importing AddExpense component on demand
@@ -45,6 +35,16 @@ const ViewExpense = Loadable({
   loading: Loader
 });
 
+/**
+ * Importing Profile component on demand
+ */
+const Profile = Loadable({
+  loader: () => new Promise(resolve => {
+    import('../Profile/index').then(res => resolve(res.default));
+  }),
+  loading: Loader
+});
+
 class AppSectionRoutes extends React.Component {
   constructor(props) {
     super(props);
@@ -71,15 +71,15 @@ class AppSectionRoutes extends React.Component {
           <Switch>
             <Route
               exact
-              path="/home"
-              render={props => (
-                <Home {...props} {...this.state} />
+              path="/"
+              render={() => (
+                <Redirect to="/view-expense" />
               )}
             />
             <Route
               exact
               path="/add-expense"
-              render={props => (<AddExpense {...props} />)}
+              render={props => (<AddExpense {...props} {...this.state} />)}
             />
             <Route
               exact
@@ -90,6 +90,11 @@ class AppSectionRoutes extends React.Component {
               exact
               path="/view-expense"
               render={props => (<ViewExpense {...props} />)}
+            />
+            <Route
+              exact
+              path="/edit-profile"
+              render={props => (<Profile {...props} />)}
             />
             <Route component={Notfound} />
           </Switch>
