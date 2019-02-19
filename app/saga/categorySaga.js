@@ -19,9 +19,12 @@ import Notification from '../components/Notification';
  */
 function* createCategory(action) {
   try {
-    const { categoryData } = action;
+    const { categoryData, cb } = action;
     const response = yield call(create, categoryData);
     yield put(createCategorySuccess(response));
+    if (cb) {
+      cb();
+    }
     Notification('success', 'Category created successfully');
   } catch (e) {
     Notification('error', e.message);

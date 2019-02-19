@@ -20,9 +20,10 @@ const getCategoryError = error => ({
 /**
  * Actions to create category
  */
-const createCategory = categoryData => ({
+const createCategory = (categoryData, cb) => ({
   type: categoryAction.ADD_CATEGORY,
-  categoryData
+  categoryData,
+  cb
 });
 
 const createCategorySuccess = response => ({

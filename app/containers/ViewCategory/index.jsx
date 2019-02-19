@@ -33,9 +33,10 @@ class ViewCategory extends React.Component {
     this.props.createCategory({
       name: nameValue,
       type: 'Custom'
+    }, () => {
+      this.clearForm();
+      this.props.getCategories();
     });
-    this.clearForm();
-    this.props.getCategories();
   }
 
   clearForm = () => {
@@ -107,7 +108,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getCategories: () => dispatch(CategoryAction.getCategory()),
-  createCategory: data => dispatch(CategoryAction.createCategory(data))
+  createCategory: (data, cb) => dispatch(CategoryAction.createCategory(data, cb))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ViewCategory);

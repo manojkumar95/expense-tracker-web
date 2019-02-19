@@ -24,7 +24,7 @@ const categoryReducer = (state = initialState, action) => {
     case categoryAction.GET_CATEGORIES_SUCCESS:
       return state
         .set('loading', false)
-        .set('categoriesList', action.response || []);
+        .set('categoriesList', action.response ? action.response.categories : []);
     case categoryAction.GET_CATEGORIES_ERROR:
       return state
         .set('loading', false)
