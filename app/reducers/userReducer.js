@@ -18,6 +18,7 @@ const userReducer = (state = initialState, action) => {
         .set('userId', action.user.userId)
         .set('firstName', action.user.firstName)
         .set('lastName', action.user.lastName)
+        .set('phoneNumber', action.user.phoneNumber)
         .set('loading', false);
     case userActions.GET_USER_ERROR:
       return state
@@ -30,6 +31,7 @@ const userReducer = (state = initialState, action) => {
         .set('userId', action.user.userId)
         .set('firstName', action.user.firstName)
         .set('lastName', action.user.lastName)
+        .set('phoneNumber', action.user.phoneNumber)
         .set('loading', false);
     case userActions.UPDATE_USER_ERROR:
       return state

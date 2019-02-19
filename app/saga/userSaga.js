@@ -21,8 +21,8 @@ function* getUser() {
 function* updateUser(action) {
   try {
     const { userData } = action;
-    const response = yield call(UserService.updateUser, userData);
-    yield put(UserActions.updateUserSuccess(response));
+    yield call(UserService.updateUser, userData);
+    yield put(UserActions.updateUserSuccess(userData));
     Notification('success', 'User updated successfully');
   } catch (e) {
     Notification('error', e.message);

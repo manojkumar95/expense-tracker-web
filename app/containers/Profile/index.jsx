@@ -12,7 +12,7 @@ class Profile extends React.Component {
     const {
       user, firstName, lastName, phoneNumber
     } = nextProps;
-    if (!prevState.initialLoad) {
+    if (!prevState.initialLoad && user) {
       return {
         idValue: user,
         firstNameValue: firstName,
