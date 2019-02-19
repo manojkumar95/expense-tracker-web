@@ -4,6 +4,7 @@
   "author": "Manoj Kumar",
   "license": "ISC",
   "scripts": {
+    "start": "cross-env NODE_ENV=dev webpack-dev-server --config webpack.config.dev.js --mode development",
     "dev": "cross-env NODE_ENV=dev webpack-dev-server --config webpack.config.dev.js --mode development",
     "build": "cross-env NODE_ENV=production webpack -p --progress --mode production --config webpack.config.build.js",
     "stats": "webpack --profile --json > stats.json",
