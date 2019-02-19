@@ -32,6 +32,7 @@ const InputField = ({
         type={type}
         value={value}
         readOnly={readOnly}
+        maxLength="100"
       />
       {
         error && <div className="error-message">{label} {error}</div>

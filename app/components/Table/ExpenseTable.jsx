@@ -23,7 +23,7 @@ const Table = ({ expenses }) => (
       <table>
         <tbody>
           {expenses.map(expense => (
-            <tr className="body" key={expense.title}>
+            <tr className="body" key={expense.id}>
               <td className="column1">{expense.id}</td>
               <td className="column2">{expense.title}</td>
               <td className="column3">{expense.amount}</td>

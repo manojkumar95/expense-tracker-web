@@ -20,7 +20,7 @@ const Table = ({ categories }) => (
       <table>
         <tbody>
           {categories.map(category => (
-            <tr className="body" key={category.name}>
+            <tr className="body" key={category.id}>
               <td className="column1">{category.id}</td>
               <td className="column2">{category.name}</td>
               <td className="column3">{category.type}</td>

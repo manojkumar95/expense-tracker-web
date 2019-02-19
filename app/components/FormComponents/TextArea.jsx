@@ -25,6 +25,7 @@ const TextArea = ({
         type={type}
         onChange={handleChange}
         value={value}
+        maxLength="255"
       />
     </div>
   </React.Fragment>
