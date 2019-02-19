@@ -80,6 +80,7 @@ class AddExpense extends React.Component {
       amountError: '',
       categoryError: ''
     });
+    this.props.history.push('/view-expense');
   }
 
   cancelForm = () => {
@@ -138,6 +139,7 @@ AddExpense.propTypes = {
   getCategories: PropTypes.func.isRequired,
   createExpense: PropTypes.func.isRequired,
   user: PropTypes.string.isRequired,
+  history: PropTypes.object.isRequired,
   categories: PropTypes.array
 };
 
