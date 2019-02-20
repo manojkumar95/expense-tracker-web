@@ -6,13 +6,12 @@ import InputField from '../FormComponents/InputField';
 const CategoryModal = ({
   nameValue, nameError, onNameChange, clearForm, handleFormSubmit
 }) => (
-  <div className="modal fade" id="myModal">
+  <div className="modal fade" id="myModal" data-backdrop="static" data-keyboard="false">
     <div className="modal-dialog modal-dialog-centered">
       <div className="modal-content">
 
         <div className="modal-header">
           <h4 className="modal-title category-title">Create Category</h4>
-          <button type="button" className="close" data-dismiss="modal">&times;</button>
         </div>
         <div className="modal-body">
           <form className="expense-form">
@@ -38,6 +37,7 @@ const CategoryModal = ({
               className="btn btn-default active-btn"
               onClick={handleFormSubmit}
               data-dismiss="modal"
+              disabled={!(nameValue.trim())}
             >
                 Save
             </button>
@@ -45,7 +45,6 @@ const CategoryModal = ({
               className="btn btn-default cancel-btn m-l-15 m-r-15"
               onClick={clearForm}
               data-dismiss="modal"
-              disabled={nameError}
             >
                 Close
             </button>
