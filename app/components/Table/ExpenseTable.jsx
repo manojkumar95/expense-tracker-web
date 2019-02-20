@@ -24,12 +24,12 @@ const Table = ({ expenses }) => (
         <tbody>
           {expenses.map(expense => (
             <tr className="body" key={expense.id}>
-              <td className="column1">{expense.id}</td>
-              <td className="column2">{expense.title}</td>
-              <td className="column3">{expense.amount}</td>
-              <td className="column4">{expense.notes}</td>
+              <td className="column1" title={expense.id}>{expense.id}</td>
+              <td className="column2" title={expense.title}>{expense.title}</td>
+              <td className="column3" title={expense.amount}>{expense.amount}</td>
+              <td className="column4" title={expense.notes}>{expense.notes}</td>
               <td className="column5">{expense.categories.map(category => (
-                <div key={category.name}>{category.name}</div>
+                <div key={category.name} title={category.name}>{category.name}</div>
               ))}
               </td>
             </tr>

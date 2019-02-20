@@ -21,9 +21,9 @@ const Table = ({ categories }) => (
         <tbody>
           {categories.map(category => (
             <tr className="body" key={category.id}>
-              <td className="column1">{category.id}</td>
-              <td className="column2">{category.name}</td>
-              <td className="column3">{category.type}</td>
+              <td className="column1" title={category.id}>{category.id}</td>
+              <td className="column2" title={category.name}>{category.name}</td>
+              <td className="column3" title={category.type}>{category.type}</td>
             </tr>
           ))}
         </tbody>

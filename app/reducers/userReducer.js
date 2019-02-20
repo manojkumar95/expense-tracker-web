@@ -28,7 +28,7 @@ const userReducer = (state = initialState, action) => {
       return state.set('loading', true);
     case userActions.UPDATE_USER_SUCCESS:
       return state
-        .set('userId', action.user.userId)
+        .set('userId', action.user.user)
         .set('firstName', action.user.firstName)
         .set('lastName', action.user.lastName)
         .set('phoneNumber', action.user.phoneNumber)
