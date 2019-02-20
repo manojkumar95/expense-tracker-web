@@ -62,8 +62,11 @@ const FilterExpense = ({
 FilterExpense.propTypes = {
   onFilterDateChange: PropTypes.func.isRequired,
   onFilterChange: PropTypes.func.isRequired,
-  dateValue: PropTypes.string.isRequired,
-  selectedFilter: PropTypes.object.isRequired,
+  dateValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.instanceOf(Date)
+  ]).isRequired,
+  selectedFilter: PropTypes.string.isRequired,
   applyFilters: PropTypes.func.isRequired
 };
 

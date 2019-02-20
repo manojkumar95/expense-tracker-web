@@ -16,7 +16,7 @@ class ViewExpense extends React.Component {
     super();
     this.state = {
       dateValue: '',
-      selectedFilter: {}
+      selectedFilter: ''
     };
   }
   componentDidMount() {
@@ -118,17 +118,17 @@ ViewExpense.propTypes = {
   getExpensesByFilters: PropTypes.func.isRequired,
   user: PropTypes.string.isRequired,
   expenses: PropTypes.array,
-  filteredExpensesList: PropTypes.array
+  filteredExpensesList: PropTypes.object
 };
 
 ViewExpense.defaultProps = {
   expenses: [],
-  filteredExpensesList: []
+  filteredExpensesList: {}
 };
 
 const mapStateToProps = state => ({
   expenses: Array.from(state.expense.get('expensesList') || []),
-  filteredExpensesList: Array.from(state.expense.get('filteredExpensesList') || []),
+  filteredExpensesList: state.expense.get('filteredExpensesList') || {},
   loading: state.expense.get('loading'),
   user: state.user.get('userId')
 });

@@ -48,7 +48,10 @@ DatePicker.propTypes = {
   maxDate: PropTypes.instanceOf(Date),
   handleChange: PropTypes.func,
   label: PropTypes.string.isRequired,
-  value: PropTypes.string
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.instanceOf(Date)
+  ])
 };
 
 export default DatePicker;
