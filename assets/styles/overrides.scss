@@ -169,3 +169,13 @@
     }
 	}
 }
+
+@media screen and (max-width: 991px) {
+	.navbar-collapse {
+		margin-top: 15px;
+		.nav-item {
+			padding: 5px 30px;
+		}
+	}
+	
+}

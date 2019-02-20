@@ -5,6 +5,10 @@
 	display: flex;
 }
 
+.mandatory-marker {
+	color: $error-color;
+}
+
 .error-message {
 	margin-top: 10px;
 	color: $error-color;
@@ -17,7 +21,7 @@
 
 input[type=text], input[type=number], textarea{
   border-radius: 4px;
-  background-color: $cancel-btn-bg-clr;
+  background-color: $white-clr;
   border: solid 1px #d7dee8;
 	color: $input-text-clr;
 	font-size: 15px;
@@ -75,7 +79,7 @@ input[type=text], input[type=number], textarea{
 
 .Select--multi {
 	.Select-value {
-		color: #ea751b !important;
+		color: $primary-theme-clr !important;
 	}
 }
 
@@ -85,7 +89,7 @@ input[type=text], input[type=number], textarea{
     text-align: center;
     color: #f8f9fa;
     width: 90px;
-    background-color: #ea751b;
+    background-color: $primary-theme-clr;
 }
 
 .cancel-btn {
@@ -94,9 +98,9 @@ input[type=text], input[type=number], textarea{
     text-align: center;
     color: #f8f9fa;
     width: 90px;
-    background-color: $cancel-btn-bg-clr !important;
-    border: solid 1px $success-btn-bg-clr;
-    color: $cancel-btn-clr;
+    background-color: $white-clr !important;
+    border: solid 1px $primary-theme-clr;
+    color: $primary-theme-clr;
 }
 
 #chart-container {
@@ -106,5 +110,5 @@ input[type=text], input[type=number], textarea{
 	padding: 10px;
 	width: 100%;
 	height: 400px;
-	background-color: #fff;
+	background-color: $white-clr;
   }

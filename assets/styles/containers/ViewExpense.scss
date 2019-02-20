@@ -17,19 +17,19 @@
   }
   .expense-title {
     font-size: 24px;
-    color: #ea751b;
+    color: $primary-theme-clr;
     margin: 10px 0 0;
   }
   .filter-btn {
-    padding: 10px 20px;
+    padding: 6px 25px;
     text-align: center;
     color: #f8f9fa;
-    background-color: #ea751b;
+    background-color: $primary-theme-clr;
   }
   .filter-container {
     border-radius: 10px;
     overflow: hidden;
-    background-color: #fff;
+    background-color: $white;
     position: relative;
     padding: 40px 15px;
   }
