@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import UserAction from '../../actions/user';
-
+import { required, validatePhoneNumber, integer } from '../../utils/validation';
 import ProfileForm from '../../components/ProfileForm';
 import '../../../assets/styles/containers/AddExpense.scss';
 
@@ -33,7 +33,8 @@ class Profile extends React.Component {
       firstNameError: '',
       lastNameError: '',
       phoneNumberError: '',
-      initialLoad: false
+      initialLoad: false,
+      disabledOnInitial: true
     };
   }
 
@@ -43,17 +44,40 @@ class Profile extends React.Component {
 
   onFirstNameChange = evt => {
     const { value } = evt.target;
-    this.setStateValues('firstNameValue', value);
+    this.setState({
+      firstNameValue: value,
+      firstNameError: required(value),
+      disabledOnInitial: false
+    });
   }
 
   onLastNameChange = evt => {
     const { value } = evt.target;
-    this.setStateValues('lastNameValue', value);
+    this.setState({
+      lastNameValue: value,
+      lastNameError: required(value),
+      disabledOnInitial: false
+    });
   }
 
   onPhoneNumberChange = evt => {
     const { value } = evt.target;
-    this.setStateValues('phoneNumberValue', value);
+    this.setState({
+      phoneNumberValue: value,
+      disabledOnInitial: false
+    });
+    const requiredPhoneNumberValue = required(value);
+    const isInteger = integer(value);
+    const isPhoneNumberFormat = validatePhoneNumber(value);
+    if (requiredPhoneNumberValue) {
+      this.setStateValues('phoneNumberError', requiredPhoneNumberValue);
+    } else if (isInteger) {
+      this.setStateValues('phoneNumberError', isInteger);
+    } else if (isPhoneNumberFormat) {
+      this.setStateValues('phoneNumberError', isPhoneNumberFormat);
+    } else {
+      this.setStateValues('phoneNumberError', '');
+    }
   }
 
   /**
@@ -100,7 +124,7 @@ class Profile extends React.Component {
   render() {
     const {
       idValue, firstNameValue, lastNameValue, phoneNumberValue,
-      firstNameError, lastNameError, phoneNumberError
+      firstNameError, lastNameError, phoneNumberError, disabledOnInitial
     } = this.state;
     const {
       onFirstNameChange, onLastNameChange, onPhoneNumberChange,
@@ -132,6 +156,7 @@ class Profile extends React.Component {
                   lastNameError={lastNameError}
                   phoneNumberError={phoneNumberError}
                   cancelForm={cancelForm}
+                  disabledOnInitial={disabledOnInitial}
                 />
               </div>
             </div>

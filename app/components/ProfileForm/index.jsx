@@ -6,7 +6,7 @@ import InputField from '../FormComponents/InputField';
 const ProfileForm = ({
   handleFormSubmit, cancelForm, onFirstNameChange, onLastNameChange, onPhoneNumberChange,
   firstNameValue, idValue, lastNameValue, phoneNumberValue,
-  firstNameError, lastNameError, phoneNumberError
+  firstNameError, lastNameError, phoneNumberError, disabledOnInitial
 }) => (
   <Fragment>
     <form className="expense-form">
@@ -36,7 +36,7 @@ const ProfileForm = ({
         </div>
       </div>
       <div className="row form-field">
-        <div className="col-12 mt-4 mb-4">
+        <div className="col-12 col-md-6 mt-4 mb-4">
           <InputField
             name="lastName"
             type="text"
@@ -48,9 +48,7 @@ const ProfileForm = ({
             error={lastNameError}
           />
         </div>
-      </div>
-      <div className="row form-field">
-        <div className="col-12 col-md-6 mt-2 mb-5">
+        <div className="col-12 col-md-6 mt-4 mb-5">
           <InputField
             name="phoneNumber"
             type="text"
@@ -68,6 +66,7 @@ const ProfileForm = ({
         <button
           className="btn btn-default active-btn"
           onClick={handleFormSubmit}
+          disabled={(firstNameError || lastNameError || phoneNumberError || disabledOnInitial)}
         >
             Update
         </button>
@@ -94,7 +93,8 @@ ProfileForm.propTypes = {
   firstNameValue: PropTypes.string.isRequired,
   lastNameValue: PropTypes.string.isRequired,
   phoneNumberValue: PropTypes.string.isRequired,
-  idValue: PropTypes.string.isRequired
+  idValue: PropTypes.string.isRequired,
+  disabledOnInitial: PropTypes.bool.isRequired
 };
 
 export default ProfileForm;
