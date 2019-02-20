@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { required, integer, isEmptyArray } from '../../utils/validation';
 import CategoryAction from '../../actions/category';
 import ExpenseAction from '../../actions/expense';
 
@@ -17,7 +18,8 @@ class AddExpense extends React.Component {
       categoryValue: '',
       titleError: '',
       amountError: '',
-      categoryError: ''
+      categoryError: '',
+      disabledOnInitial: true
     };
   }
 
@@ -27,12 +29,26 @@ class AddExpense extends React.Component {
 
   onTitleChange = evt => {
     const { value } = evt.target;
-    this.setStateValues('titleValue', value);
+    this.setState({
+      titleValue: value,
+      titleError: required(value)
+    });
   }
 
   onAmountChange = evt => {
     const { value } = evt.target;
-    this.setStateValues('amountValue', value);
+    const requiredAmountValue = required(value);
+    const isInteger = integer(value);
+    this.setState({
+      amountValue: value
+    });
+    if (requiredAmountValue) {
+      this.setStateValues('amountError', requiredAmountValue);
+    } else if (isInteger) {
+      this.setStateValues('amountError', isInteger);
+    } else {
+      this.setStateValues('amountError', '');
+    }
   }
 
   onNotesChange = evt => {
@@ -42,6 +58,8 @@ class AddExpense extends React.Component {
 
   onCategoryChange = selectedOption => {
     this.setStateValues('categoryValue', selectedOption);
+    this.setStateValues('categoryError', isEmptyArray(selectedOption));
+    this.setStateValues('disabledOnInitial', false);
   }
 
   /**
@@ -92,7 +110,7 @@ class AddExpense extends React.Component {
     const { categories } = this.props;
     const {
       titleValue, amountValue, notesValue, categoryValue,
-      titleError, amountError, categoryError
+      titleError, amountError, categoryError, disabledOnInitial
     } = this.state;
     const {
       onTitleChange, onAmountChange, onNotesChange, onCategoryChange,
@@ -126,6 +144,7 @@ class AddExpense extends React.Component {
                   amountError={amountError}
                   categoryError={categoryError}
                   cancelForm={cancelForm}
+                  disabledOnInitial={disabledOnInitial}
                 />
               </div>
             </div>

@@ -10,7 +10,7 @@ import '../../../assets/styles/containers/AddExpense.scss';
 const AddExpenseForm = ({
   handleFormSubmit, cancelForm, category, onTitleChange, onAmountChange, onNotesChange, onCategoryChange,
   titleValue, amountValue, notesValue, categoryValue,
-  titleError, amountError, categoryError
+  titleError, amountError, categoryError, disabledOnInitial
 }) => (
   <Fragment>
     <form className="expense-form">
@@ -77,6 +77,7 @@ const AddExpenseForm = ({
         <button
           className="btn btn-default active-btn"
           onClick={handleFormSubmit}
+          disabled={(titleError || amountError || categoryError || disabledOnInitial)}
         >
             Save
         </button>
@@ -105,7 +106,8 @@ AddExpenseForm.propTypes = {
   titleValue: PropTypes.string.isRequired,
   amountValue: PropTypes.string.isRequired,
   notesValue: PropTypes.string.isRequired,
-  categoryValue: PropTypes.string.isRequired
+  categoryValue: PropTypes.string.isRequired,
+  disabledOnInitial: PropTypes.bool.isRequired
 };
 
 export default AddExpenseForm;

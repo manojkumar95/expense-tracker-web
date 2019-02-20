@@ -40,6 +40,11 @@ class ViewExpense extends React.Component {
     this.setState({
       selectedFilter: value
     });
+    if (value === 'noFilter') {
+      this.setState({
+        dateValue: ''
+      });
+    }
   }
 
   applyFilters = () => {
@@ -90,7 +95,7 @@ class ViewExpense extends React.Component {
             </div>
           </div>
           <div className="row m-t-10 p-l-15">
-            <div className="col-lg-3">
+            <div className="col-lg-12">
               <div className="table-container filter-container">
                 <FilterExpense
                   onFilterDateChange={this.onFilterDateChange}
@@ -99,12 +104,11 @@ class ViewExpense extends React.Component {
                   selectedFilter={selectedFilter}
                   applyFilters={this.applyFilters}
                 />
+                <ExpenseChart
+                  expenses={filteredExpensesList}
+                />
               </div>
-            </div>
-            <div className="col-lg-9">
-              <ExpenseChart
-                expenses={filteredExpensesList}
-              />
+
             </div>
           </div>
         </div>

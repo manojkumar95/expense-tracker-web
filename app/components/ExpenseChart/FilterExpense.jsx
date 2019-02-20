@@ -15,46 +15,47 @@ const FilterExpense = ({
   onFilterDateChange, dateValue,
   onFilterChange, selectedFilter, applyFilters
 }) => (
-  <div>
+  <div className="col-11 offset-1">
     <div className="col-12 p-0">
       <span className="expense-title">
         Filters
       </span>
     </div>
-    <div className="m-t-35">
-      <SelectField
-        name="applyFilters"
-        label="Filter By"
-        isLableRequired
-        options={filterOptions}
-        placeholder="Select filter"
-        simpleValue
-        labelKey="name"
-        valueKey="id"
-        isRequired
-        isMulti={false}
-        value={selectedFilter}
-        handleChange={onFilterChange}
-      />
-    </div>
-    {Object.keys(selectedFilter).length > 0 && selectedFilter.id !== 'noFilter' &&
-    <div className="m-t-35">
-      <DatePicker
-        value={dateValue}
-        name="filterDate"
-        label="Filter Date"
-        handleChange={onFilterDateChange}
-      />
-    </div>
+    <div className="row p-0 mb-5">
+      <div className="col-md-4 col-12 m-t-35">
+        <SelectField
+          name="applyFilters"
+          label="Filter By"
+          options={filterOptions}
+          placeholder="Select filter"
+          simpleValue
+          labelKey="name"
+          valueKey="id"
+          isRequired
+          isMulti={false}
+          value={selectedFilter}
+          handleChange={onFilterChange}
+        />
+      </div>
+      {Object.keys(selectedFilter).length > 0 && selectedFilter !== 'noFilter' &&
+      <div className="col-md-4 col-12 m-t-35">
+        <DatePicker
+          value={dateValue}
+          name="filterDate"
+          label="Filter Date"
+          handleChange={onFilterDateChange}
+        />
+      </div>
     }
-    <div className="col-lg-8 col-6 offset-lg-1 col-sm-8 offset-sm-4 offset-md-4 offset-3">
-      <button
-        className="btn btn-default filter-btn m-t-35"
-        onClick={applyFilters}
-        disabled={!dateValue}
-      >
-        Apply Filters
-      </button>
+      <div className="col-md-4 col-12">
+        <button
+          className="btn btn-default filter-btn m-t-35"
+          onClick={applyFilters}
+          disabled={(selectedFilter !== 'noFilter' && !dateValue)}
+        >
+        Filter
+        </button>
+      </div>
     </div>
   </div>
 );
