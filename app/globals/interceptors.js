@@ -31,7 +31,11 @@ const setupInterceptors = store => {
     } else if (response.status === 200 || response.status === 201 || response.status === 202) {
       return response.data;
     } else if (response.status === 422) {
-      throw new ApiError(response.data.error);
+      throw new ApiError(response.data);
+    } else if (response.status === 404) {
+      throw new ApiError(response.data);
+    } else if (response.status === 412) {
+      throw new ApiError(response.data);
     } else {
       throw new ApiError(ERRORS.CLIENT_ERROR);
     }

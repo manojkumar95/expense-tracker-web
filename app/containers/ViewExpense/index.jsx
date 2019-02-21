@@ -26,7 +26,8 @@ class ViewExpense extends React.Component {
     }
     this.props.getExpensesByFilters({
       fromDate: '',
-      period: ''
+      period: '',
+      user
     });
   }
 
@@ -49,9 +50,11 @@ class ViewExpense extends React.Component {
 
   applyFilters = () => {
     const { selectedFilter, dateValue } = this.state;
+    const { user } = this.props;
     this.props.getExpensesByFilters({
       fromDate: dateValue,
-      period: selectedFilter
+      period: selectedFilter,
+      user
     });
   }
 
